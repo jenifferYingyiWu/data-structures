@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14820\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Two of my classes contain main methods. One of them is the HuffmanLibrary class and the other is the HLinkedList class. The HLinkedList main method is simply to test the methods used inside my linked list such as adding a node, removing a node, printing the list, etc. \
+\
+There are two ways to run the HuffmanLibrary class. Both ways require the specification of the location for the input and output files. \
+\
+The first way is to have the arguments passed in be the two locations, input and output respectively.\
+\
+The second way is to leave the arguments blank, and in the main method of the class where it calls Huffman_coder, replace the two strings with the proper paths to the input and output files respectively.\
+\
+I used the text file, "SleepyHollow.txt" for my test. This file is 91KB and after my encoding, the output file, "Sleepy_Hollow.zip" is 49KB. The file size has been almost cut in half. (I also tested larger files such as DonQuijote.txt which was 2.2MB and had an output file of 1.2MB)\
+\
+\
+\
+\
+The way my code works is as follows:\
+1. Read in the text file into a string.\
+2. Create a linked list and insert each character of the string into the linked list as a new node if it is not already in the list. Otherwise find the node with the same character and increase its frequency.\
+NOTE: Step 2 was created using the original version of the HLinkedList method find(HTreeNode node) so it is now not as efficient as it could be. It should instead call find on the character it is reading and only if find returns null should it create a new node. Currently it wastes some memory and resources to create every node. \
+3. Sort the list and begin creating a Huffman Tree by taking the two nodes with smallest frequencies and setting them as the left and right of a new "parent" node. Insert the "parent" node into the list and remove the other two nodes.\
+4. Set the last remaining node in the list as the root of the tree.\
+5. Run through every node in the tree and create its encoding.\
+6. Save each nodes encoding into an array in which the index corresponds to the characters' integer value.\
+7. Create a new string containing every character in the original string, but encoded. \
+8. Use this string to create a byte sequence and write the sequence to a file (using TA's class).\
+\
+\
+NOTE: Since I am using a Mac, the character set is different (MacRoman vs Latin1) and running my program on the same file on a Windows machine may produce an output file that differs from the one I produced. This is also why the array I use to store the encodings must be so large, if only 7bit characters were used (only ASCII characters) the array would only need to be of length 255. (I'm not sure the number of bits used in MacRoman encoding, but I had characters in the 8-9000 range so I made the array go to 10000).}

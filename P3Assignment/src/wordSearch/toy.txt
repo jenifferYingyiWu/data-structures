@@ -1,0 +1,2 @@
+This is my toy test file.
+There are electronic circuits that when analyzed are very similar to mechanical oscillators. These circuits are created by using an inductor, a capacitor, and a resistor in series with each other. The capacitor is charged from a voltage source through the resistor and then discharged through the inductor.
